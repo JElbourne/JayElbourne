@@ -1,8 +1,56 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
+    padding-top: 100px;
     padding-bottom: 20px;
+}
+
+.navbar {
+    /* border: red dashed 1px; */
+    background-color: white;
+}
+
+.navbar {
+    min-height: 100px;
+}
+
+.navbar-nav {
+    vertical-align: middle;
+}
+
+
+.navbar-brand {
+    padding: 0 15px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.navbar-brand img {
+    margin: 30px 0;
+    height: 40px;
+}
+
+.navbar-toggle {
+    /* (100px - button height 34px) / 2 = 33px */
+    margin-top: 33px;
+    padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        /* (100px - line-height of 27px) / 2 = 36.5px */
+        padding-top: 36.5px;
+        padding-bottom: 36.5px;
+        line-height: 27px;
+    }
+
+    .nav-item {
+        padding: 0 15px;
+    }
+
+    div.dropdown-menu {
+        margin-top: -36.5px;
+    }
 }
 
 /* Wrapping element */
@@ -10,28 +58,4 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
 }
