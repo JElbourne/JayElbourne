@@ -7,11 +7,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
-
+    
   <ItemGroup>
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Project\" />
+    <Folder Include="DataContext\" />
   </ItemGroup>
 </Project>

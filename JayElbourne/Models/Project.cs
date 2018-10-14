@@ -44,11 +44,15 @@ namespace JayElbourne.Models
 
         public DateTime Posted { get; set; }
 
+        public Status ProjectStatus { get; set; }
+
         public enum Status
         {
             [Display(Name = "Work In Progress")]
             WorkInProgress,
             Complete
         }
+
+
     }
 }

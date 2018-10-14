@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using JayElbourne.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace JayElbourne
 {
@@ -31,8 +33,14 @@ namespace JayElbourne
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<ProjectDataContext>(options =>
+            {
+                var connectionString = Configuration.GetConnectionString("ProjectDataContext");
+                options.UseSqlServer(connectionString);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
