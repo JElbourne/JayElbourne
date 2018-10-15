@@ -35,6 +35,7 @@ namespace JayElbourne
             });
 
             services.AddTransient<DateFormatHelper>();
+            services.AddTransient<StringFormatHelper>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

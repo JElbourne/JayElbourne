@@ -16,7 +16,7 @@
     <Folder Include="DataContext\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Update="Views\Shared\_Project.cshtml">
+    <Content Update="Views\Project\_ProjectInfo.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

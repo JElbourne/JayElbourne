@@ -4,4 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@await Html.PartialAsync("_Project")
+<div class="row">
+    <div class="col">
+        @await Html.PartialAsync("_ProjectImages")
+    </div>
+    <div class="col-4">
+        @await Html.PartialAsync("_ProjectInfo")
+    </div>
+</div>
+
+

@@ -1,0 +1,20 @@
+﻿@inject JayElbourne.Views.Helpers.DateFormatHelper DateFormat
+@inject JayElbourne.Views.Helpers.StringFormatHelper StringFormat
+
+@model JayElbourne.Models.Project
+
+<article class="project-details">
+    <h1>@StringFormat.TitleCase(Model.Title, false)</h1>
+    <div class="details">
+        <p>Posted: <span>@DateFormat.AsReadableDate(@Model.Posted)</span></p>
+        <p>Status: <span>@Model.ProjectStatus</span></p>
+    </div>
+    <div class="content">
+        @Model.Body
+    </div>
+</article>
+
+<div id="project-tags-container">
+
+</div>
+

@@ -36,6 +36,15 @@ body {
     padding: 9px 10px;
 }
 
+.project-image-container {
+    margin-bottom: 20px;
+}
+
+.project-image-full {
+    width: 100%;
+}
+
+
 @media (min-width: 768px) {
     .navbar-nav > li > a {
         /* (100px - line-height of 27px) / 2 = 36.5px */

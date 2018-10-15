@@ -1,0 +1,14 @@
+﻿@inject JayElbourne.Views.Helpers.DateFormatHelper DateFormat
+@inject JayElbourne.Views.Helpers.StringFormatHelper StringFormat
+@model JayElbourne.Models.Project
+
+<article class="project-summary">
+    <h1>@Html.ActionLink(StringFormat.TitleCase(Model.Title, false), "Detail", "Project", new { slug = Model.Slug })</h1>
+    <div class="details">
+        Posted: <span>@DateFormat.AsReadableDate(@Model.Posted)</span>
+        Status: <span>@Model.ProjectStatus</span>
+    </div>
+    <div class="content-truncated">
+        @StringFormat.Truncate(@Model.Body, 100)
+    </div>
+</article>
