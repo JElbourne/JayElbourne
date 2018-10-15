@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using JayElbourne.DataContext;
 using Microsoft.EntityFrameworkCore;
+using JayElbourne.Views.Helpers;
 
 namespace JayElbourne
 {
@@ -32,6 +33,8 @@ namespace JayElbourne
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddTransient<DateFormatHelper>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -64,7 +67,7 @@ namespace JayElbourne
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}");
             });
         }
     }

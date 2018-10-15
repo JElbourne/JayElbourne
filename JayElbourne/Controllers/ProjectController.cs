@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JayElbourne.DataContext;
 using JayElbourne.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +16,20 @@ namespace JayElbourne.Controllers
             _db = db;
         }
 
-        [Route("{slug}")]
-        public IActionResult Detail()
+        [Route("")]
+        public IActionResult Index()
         {
-            return View();
+            var projects = _db.Projects.OrderByDescending(x => x.Posted).Take(5).ToArray();
+
+            return View(projects);
+        }
+
+        [Route("{slug}")]
+        public IActionResult Detail(string slug)
+        {
+            var project = _db.Projects.FirstOrDefault(x => x.Slug == slug);
+
+            return View(project);
         }
 
         [HttpGet, Route("create")]

@@ -33,7 +33,7 @@ body {
 .navbar-toggle {
     /* (100px - button height 34px) / 2 = 33px */
     margin-top: 33px;
-    padding: 9px 10px !important;
+    padding: 9px 10px;
 }
 
 @media (min-width: 768px) {
@@ -48,7 +48,7 @@ body {
         padding: 0 15px;
     }
 
-    div.dropdown-menu {
+    .dropdown-menu {
         margin-top: -36.5px;
     }
 }
