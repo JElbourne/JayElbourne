@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using JayElbourne.DataContext;
-using JayElbourne.Models;
+using JayElbourneData;
+using JayElbourneData.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JayElbourne.Controllers
@@ -9,9 +9,9 @@ namespace JayElbourne.Controllers
     [Route("project")]
     public class ProjectController : Controller
     {
-        private readonly ProjectDataContext _db;
+        private readonly JayElbourneContext _db;
 
-        public ProjectController(ProjectDataContext db)
+        public ProjectController(JayElbourneContext db)
         {
             _db = db;
         }

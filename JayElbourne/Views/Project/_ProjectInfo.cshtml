@@ -1,7 +1,7 @@
 ﻿@inject JayElbourne.Views.Helpers.DateFormatHelper DateFormat
 @inject JayElbourne.Views.Helpers.StringFormatHelper StringFormat
 
-@model JayElbourne.Models.Project
+@model JayElbourneData.Models.Project
 
 <article class="project-details">
     <h1>@StringFormat.TitleCase(Model.Title, false)</h1>
@@ -13,8 +13,9 @@
         @Model.Body
     </div>
 </article>
-
-<div id="project-tags-container">
-
+<div id="project-tags-container"> 
+    <a href=""><span class="badge badge-primary">Coding</span></a>
+    <a href=""><span class="badge badge-primary">C#</span></a>
+    <a href=""><span class="badge badge-primary">ASP.NET</span></a>
 </div>
 

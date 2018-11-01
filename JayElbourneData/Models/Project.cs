@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
-namespace JayElbourne.Models
+namespace JayElbourneData.Models
 {
     public class Project
     {

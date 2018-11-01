@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using JayElbourne.DataContext;
 using Microsoft.EntityFrameworkCore;
 using JayElbourne.Views.Helpers;
+using JayElbourneData;
 
 namespace JayElbourne
 {
@@ -27,23 +27,14 @@ namespace JayElbourne
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
 
             services.AddTransient<DateFormatHelper>();
             services.AddTransient<StringFormatHelper>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<ProjectDataContext>(options =>
-            {
-                var connectionString = Configuration.GetConnectionString("ProjectDataContext");
-                options.UseSqlServer(connectionString);
-            });
+            services.AddDbContext<JayElbourneContext>(options
+                => options.UseSqlServer(Configuration.GetConnectionString("JayElbourneConnection")));
 
         }
 

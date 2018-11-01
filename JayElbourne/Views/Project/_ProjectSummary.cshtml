@@ -1,6 +1,6 @@
 ﻿@inject JayElbourne.Views.Helpers.DateFormatHelper DateFormat
 @inject JayElbourne.Views.Helpers.StringFormatHelper StringFormat
-@model JayElbourne.Models.Project
+@model JayElbourneData.Models.Project
 
 <article class="project-summary">
     <h1>@Html.ActionLink(StringFormat.TitleCase(Model.Title, false), "Detail", "Project", new { slug = Model.Slug })</h1>
