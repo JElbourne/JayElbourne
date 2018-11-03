@@ -19,15 +19,15 @@ namespace JayElbourne.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            var projects = _db.Projects.OrderByDescending(x => x.Posted).Take(5).ToArray();
+            var projects = _db.Projects.OrderByDescending(x => x.PostedOn).Take(5).ToArray();
 
             return View(projects);
         }
 
         [Route("{slug}")]
-        public IActionResult Detail(string slug)
+        public IActionResult Detail(string _slug)
         {
-            var project = _db.Projects.FirstOrDefault(x => x.Slug == slug);
+            var project = _db.Projects.FirstOrDefault(x => x.UrlSlug == _slug);
 
             return View(project);
         }
@@ -44,7 +44,7 @@ namespace JayElbourne.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            project.Posted = DateTime.Now;
+            project.PostedOn = DateTime.Now;
 
             _db.Projects.Add(project);
             _db.SaveChanges();

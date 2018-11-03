@@ -4,14 +4,16 @@ using JayElbourneData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JayElbourneData.Migrations
 {
     [DbContext(typeof(JayElbourneContext))]
-    partial class JayElbourneContextModelSnapshot : ModelSnapshot
+    [Migration("20181103033733_Initial Entity Models")]
+    partial class InitialEntityModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
