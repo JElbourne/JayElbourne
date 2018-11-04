@@ -17,6 +17,7 @@
     
   <ItemGroup>
     <ProjectReference Include="..\JayElbourneData\JayElbourneData.csproj" />
+    <ProjectReference Include="..\JayElbourneServices\JayElbourneServices.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Project\_ProjectInfo.cshtml">

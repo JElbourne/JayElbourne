@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using JayElbourne.Views.Helpers;
 using JayElbourneData;
+using JayElbourneServices;
 
 namespace JayElbourne
 {
@@ -32,7 +33,9 @@ namespace JayElbourne
             services.AddTransient<StringFormatHelper>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            services.AddSingleton(Configuration);
+            services.AddScoped<IProject, ProjectService>();
+             
             services.AddDbContext<JayElbourneContext>(options
                 => options.UseSqlServer(Configuration.GetConnectionString("JayElbourneConnection")));
 

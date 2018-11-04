@@ -1,30 +1,45 @@
 ﻿using System;
 using System.Linq;
+using JayElbourne.Models.Project;
 using JayElbourneData;
 using JayElbourneData.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JayElbourne.Controllers
 {
-    [Route("project")]
     public class ProjectController : Controller
     {
-        private readonly JayElbourneContext _db;
-
-        public ProjectController(JayElbourneContext db)
+        private IProject m_projects;
+        
+        public ProjectController(IProject _projects)
         {
-            _db = db;
+            m_projects = _projects;
         }
 
-        [Route("")]
         public IActionResult Index()
         {
-            var projects = _db.Projects.OrderByDescending(x => x.PostedOn).Take(5).ToArray();
+            var projectModels = m_projects.GetAll();
 
-            return View(projects);
+            var listingResult = projectModels
+                .Select(result => new ProjectIndexListingModel
+                {
+                    Id = result.Id,
+                    UrlSlug = result.UrlSlug,
+                    Title = result.Title,
+                    Description = result.Description,
+                    ImageUrl = result.ImageUrl,
+                    Status = result.ProjectStatus.Name,
+                    PostedOn = result.PostedOn
+                });
+
+            var model = new ProjectIndexModel()
+            {
+                Projects = listingResult
+        };
+
+            return View(model);
         }
 
-        [Route("{slug}")]
         public IActionResult Detail(string _slug)
         {
             var project = _db.Projects.FirstOrDefault(x => x.UrlSlug == _slug);
@@ -32,13 +47,13 @@ namespace JayElbourne.Controllers
             return View(project);
         }
 
-        [HttpGet, Route("create")]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        [HttpPost, Route("create")]
+        [HttpPost]
         public IActionResult Create(Project project)
         {
             if (!ModelState.IsValid)

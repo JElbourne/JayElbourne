@@ -1,13 +1,13 @@
-﻿@model IEnumerable<JayElbourneData.Models.Project>
+﻿@model JayElbourne.Models.Project.ProjectIndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Project Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <div class="blog-posts">
-    @foreach (var project in Model)
+    @foreach (var project in Model.Projects)
     {
         @await Html.PartialAsync("_ProjectSummary", project)
     }
